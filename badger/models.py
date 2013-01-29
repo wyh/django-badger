@@ -20,14 +20,19 @@ from django.core.mail import send_mail
 from django.core.exceptions import ValidationError
 from django.core.files.storage import FileSystemStorage
 from django.core.files.base import ContentFile
-from django.core.serializers.json import DjangoJSONEncoder
-from django.utils import simplejson as json
 from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.sites.models import Site
 from django.contrib.contenttypes.models import ContentType
 
 from django.template import Context, TemplateDoesNotExist
 from django.template.loader import render_to_string
+
+from django.core.serializers.json import DjangoJSONEncoder
+
+try:
+    import django.utils.simplejson as json
+except ImportError: # Django 1.5 no longer bundles simplejson
+    import json
 
 # HACK: Django 1.2 is missing receiver and user_logged_in
 try:
@@ -69,6 +74,7 @@ if "notification" in settings.INSTALLED_APPS:
 else:
     notification = None
 
+import badger
 from .signals import (badge_will_be_awarded, badge_was_awarded, 
                       nomination_will_be_approved, nomination_was_approved,
                       nomination_will_be_accepted, nomination_was_accepted,
@@ -720,9 +726,10 @@ class Award(models.Model):
             badge_will_be_awarded.send(sender=self.__class__, award=self)
 
         super(Award, self).save(*args, **kwargs)
-        # Called after super.save(), so we have some auto-gen fields like pk
-        # and created
-        self.bake_obi_image()
+
+        # Called after super.save(), so we have some auto-gen fields
+        if badger.settings.BAKE_AWARD_IMAGES:
+            self.bake_obi_image()
 
         if is_new:
             # Only fire was-awarded signal on a new award.
