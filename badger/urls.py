@@ -72,4 +72,5 @@ urlpatterns = patterns('badger.views',
         AwardsByBadgeFeed(), name="badger.feeds.awards_by_badge"),
     url(r'^feeds/(?P<format>[^/]+)/users/(?P<username>[^/]+)/awards/?$',
         AwardsByUserFeed(), name="badger.feeds.awards_by_user"),
+    url(r'^notification/$', "notification", name="badger.notification")
 )

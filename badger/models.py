@@ -3,7 +3,7 @@ import re
 import random
 import hashlib
 
-from datetime import datetime, timedelta, tzinfo
+from datetime import datetime, date, timedelta, tzinfo
 from time import time, gmtime, strftime
 
 import os.path
@@ -396,6 +396,9 @@ class Badge(models.Model):
     created = models.DateTimeField(auto_now_add=True, blank=False)
     modified = models.DateTimeField(auto_now=True, blank=False)
 
+    start_date = models.DateField(null=True, blank=True)
+    end_date = models.DateField(null=True, blank=True)
+
     class Meta:
         unique_together = ('title', 'slug')
         ordering = ['-modified', '-created']
@@ -519,7 +522,7 @@ class Badge(models.Model):
         # If we have an email, but no awardee, try looking up the user.
         if email and not awardee:
             qs = User.objects.filter(email=email)
-            if not qs:
+            if True:
                 # If there's no user for this email address, create a
                 # DeferredAward for future claiming.
                 da = DeferredAward(badge=self, email=email)
@@ -871,8 +874,8 @@ class Progress(models.Model):
         super(Progress, self).save(*args, **kwargs)
 
         # If the percent is over/equal to 1.0, auto-award on save.
-        if self.percent >= 100:
-            self.badge.award_to(self.user)
+        # if self.percent >= 100:
+        #    self.badge.award_to(self.user)
 
     def _quiet_save(self, raise_exception=False):
         try:
@@ -1056,7 +1059,6 @@ class DeferredAward(models.Model):
                                    creator=granter, reusable=False)
             new_da.save()
             return new_da
-
 
 class NominationException(BadgerException):
     """Nomination model exception"""

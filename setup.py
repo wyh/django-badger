@@ -29,7 +29,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
     install_requires=[
-        'django>=1.2',
+        'django==1.3.1',
         'PIL',
     ],
     tests_require=[

@@ -310,8 +310,8 @@ def _do_claim(request, deferred_award):
         return HttpResponseForbidden('Claim denied')
     award = deferred_award.claim(request.user)
     if award:
-        url = reverse('badger.views.award_detail',
-                      args=(award.badge.slug, award.id,))
+        url = reverse('badger.awards_by_user',
+                      args=(request.user.username,))
         return HttpResponseRedirect(url)
 
 
@@ -527,4 +527,11 @@ def nominate_for(request, slug):
 
     return render_to_response('%s/badge_nominate_for.html' % TEMPLATE_BASE,
                               dict(form=form, badge=badge,),
+                              context_instance=RequestContext(request))
+@login_required
+def notification(request):
+    user = request.user
+    das = DeferredAward.objects.filter(email=user.email)
+    return render_to_response('%s/notification.html' % TEMPLATE_BASE,
+                              dict(das=das,),
                               context_instance=RequestContext(request))
