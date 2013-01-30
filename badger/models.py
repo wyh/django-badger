@@ -402,9 +402,6 @@ class Badge(models.Model):
     created = models.DateTimeField(auto_now_add=True, blank=False)
     modified = models.DateTimeField(auto_now=True, blank=False)
 
-    start_date = models.DateField(null=True, blank=True)
-    end_date = models.DateField(null=True, blank=True)
-
     class Meta:
         unique_together = ('title', 'slug')
         ordering = ['-modified', '-created']

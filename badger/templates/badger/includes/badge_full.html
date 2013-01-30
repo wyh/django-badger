@@ -1,0 +1,72 @@
+{% load i18n %}
+{% load badger_tags %}
+{% load badge_tags %}
+{% if not award %}
+<div class="btn-group">
+    {% if badge|permissions_for:request.user|key:'edit_by' %}
+        <a class="btn btn-large btn-primary edit_badge" href="{% url badger.views.edit badge.slug  %}">{{ _('Edit') }}</a>
+    {% endif %}
+    {% if badge|permissions_for:request.user|key:'delete_by' %}
+        <a class="btn btn-large btn-danger delete_badge" href="{% url badger.views.delete badge.slug %}">{{ _('Delete') }}</a>
+    {% endif %}
+</div>
+{% endif %}
+
+<div class="badge-detail well" data-slug="{{ badge.slug }}">
+    <div class="row">
+        <div class="span4">
+        {% if award and award.image %}
+                <div class="image"><a href="#" class="image"><img src="{{ award.image.url }}" /></a></div>
+        {% else %}
+            {%if badge.image %}
+                <div class="image"><a href="#" class="image"><img src="{{ badge.image.url }}"/></a></div>
+            {%endif%}
+        {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="span3">
+            <div class="page-header">
+                <h2 class="title">{{ badge.title }}</h2>
+            </div>
+            <div class="row">
+                <div class="span4">
+                    {% if badge.description %}
+                        <div class="description">{{ badge.description }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <div class="progress progress-success">
+                        <div class="bar" style="width: {{ badge|badge_progress:user }}%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4">
+                    {% with badge|claim_code_for_badge:user as code %}
+                        {% if code %}
+                            <a class="btn btn-large btn-success" href="{% url badger.claim_deferred_award code %}"> {% trans "Claim the badge" %}</a>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="actions">
+
+        {% if allow_award %}
+            <li><a class="award_badge" href="{% url badger.award_badge badge.slug %}">{{ _('Issue award') }}</a></li>
+        {% endif %}
+        {%comment%}
+        {# TODO: Can this be done extensibly? with a registry? #}
+        {% set modules = [ "badger_multiplayer" ] %}
+        {% for module in modules %}
+            {% include module ~ "/includes/badge_full_actions.html" %}
+        {% endfor %}
+        {%endcomment%}
+
+    </ul>
+</div>
+<div class="badge-bottom"></div>
