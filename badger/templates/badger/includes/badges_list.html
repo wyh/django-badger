@@ -1,22 +1,19 @@
-<div class="badges">
+
+<div class="badges row">
     {% for badge in badge_list %}
+    <div class="span2">
         <div class="badge-detail well">
-            <div class="row">
-                <div class="span2">
-                    <a href="{{ badge.get_absolute_url }}" class="image">
-                    {% if badge.image %}
-                        <img src="{{badge.image.url}}" 
-                    {% else %}
-                        <img src="/media/img/default-badge.png"
-                    {% endif %}
-                
-                        alt="{{ badge.title }}" width="128" height="128" /></a>
-                </div>
-                <div class="span6">
-                    <h2><a href="{{ badge.get_absolute_url }}" class=""><span class="title">{{ badge.title }}</span></a></h2>
-                </div>
-            </div>
+            <a href="{{ badge.get_absolute_url }}" class="image">
+            {% if badge.image %}
+                <img src="{{badge.image.url}}" 
+            {% else %}
+                <img src="/media/img/default-badge.png"
+            {% endif %}
+        
+                alt="{{ badge.title }}" width="128" height="128" /></a>
+            <h3 class="center"><a href="{{ badge.get_absolute_url }}" class=""><span class="title">{{ badge.title }}</span></a></h3>
         </div>
+    </div>
     {% endfor %}
 </div>
 {% include "badger/includes/pagination.html" %}

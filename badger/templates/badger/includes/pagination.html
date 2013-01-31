@@ -3,7 +3,7 @@
     {% if is_paginated %}
       <ul class="paging">
         {% if page_obj.number != 1 %}
-            <li class="first"><a href="{{ pagination_base_url }}?page=1&sort={{current_sort}}" title="{{_('Go to the first page')}}">First</a></li>
+            <li class="first"><a href="{{ pagination_base_url }}?page=1&sort={{current_sort}}" title="{{_('Go to the first page')}}">{{_('First')}}</a></li>
         {% endif %}
         {% if page_obj.has_previous %}
             <li class="prev"><a href="{{ pagination_base_url }}?page={{ page_obj.previous_page_number }}&sort={{current_sort}}" title="{{_('Go to the previous page')}}">{{_('Previous')}}</a></li>

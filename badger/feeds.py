@@ -153,7 +153,7 @@ class AwardsFeed(BaseFeed):
     atom_feed_generator = AwardActivityStreamAtomFeedGenerator
 
     def item_title(self, obj):
-        return _('%s awarded to %s') % (obj.badge.title, obj.user)
+        return '%s awarded to %s' % (obj.badge.title, obj.user)
 
     def item_author_link(self, obj):
         if not obj.creator:

@@ -5,7 +5,9 @@
 
 {% block content %}
 <section class="badges_list">
-    <h2>{% trans "Badges" %}</h2>
+    <div class="page-header">
+        <h2>{% trans "Badges" %}</h2>
+    </div>
     {% include "badger/includes/badges_list.html" %}
 </section>
 {% endblock %}

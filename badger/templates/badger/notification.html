@@ -2,7 +2,9 @@
 {% load i18n %}
 {% block content %}
 <section class="awards_list">
-    <h2>{% trans "Please goto claim the award" %}</h2>
+    <div class="page-header">
+        <h2>{% trans "Please goto claim the award" %}</h2>
+    </div>
     {% for da in das %}
         {% include "badger/includes/badge_full.html" with badge=da.badge%}
     {% endfor %}

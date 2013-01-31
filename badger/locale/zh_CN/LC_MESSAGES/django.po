@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-29 13:35+0800\n"
+"POT-Creation-Date: 2013-01-31 14:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,104 +18,847 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: feeds.py:156 templates/badger/home.html:7
+#: feeds.py:149 templates/badger/home.html:7 templates/badger/noty/home.html:7
+#: templates/badger/noty/home.html.py:113
 msgid "Recently awarded badges"
 msgstr "最近颁发的徽章"
 
-#: feeds.py:163
-#, python-format
-msgid "%(title)s awarded to %(user)s"
-msgstr ""
-
-#: feeds.py:194
+#: feeds.py:187
 #, python-format
 msgid "Badges recently awarded to %s"
 msgstr ""
 
-#: feeds.py:212
+#: feeds.py:205
 #, python-format
 msgid "Recent awards of \"%s\""
 msgstr ""
 
-#: models.py:301
+#: feeds.py:222 templates/badger/noty/home.html:10
+#: templates/badger/noty/home.html.py:98
+msgid "Recently created badges"
+msgstr ""
+
+#: feeds.py:249
+#, python-format
+msgid "Badges recently created by %s"
+msgstr ""
+
+#: forms.py:91
+#, python-format
+msgid "%(num)s items entered, only %(max)s allowed"
+msgstr ""
+
+#: forms.py:103
+#, python-format
+msgid "These items were invalid: %s"
+msgstr ""
+
+#: forms.py:117
+msgid "Enter up to 10 email addresses for badge award recipients"
+msgstr "输入最多10个被授予徽章用户的电子邮件地址"
+
+#: forms.py:120
+msgid "Explanation"
+msgstr "解释"
+
+#: forms.py:122
+msgid "Explain why this badge should be awarded"
+msgstr "解释这枚徽章被颁发原因"
+
+#: forms.py:139
+#, python-format
+msgid "No such claim code, %s"
+msgstr ""
+
+#: models.py:375
+msgid "title"
+msgstr "标题"
+
+#: models.py:376
+msgid "Short, descriptive title"
+msgstr "简短的描述"
+
+#: models.py:377
+msgid "Slug"
+msgstr ""
+
+#: models.py:378
+msgid "Very short name, for use in URLs and links"
+msgstr "简短的英文名称，用于url链接里"
+
+#: models.py:379
+msgid "Description"
+msgstr ""
+
+#: models.py:380
+msgid "Longer description of the badge and its criteria"
+msgstr "徽章具体的描述"
+
+#: models.py:381
+msgid "Image"
+msgstr ""
+
+#: models.py:383
+msgid "Upload an image to represent the badge"
+msgstr "上传徽章图片"
+
+#: models.py:386
+msgid ""
+"When all of the selected badges have been awarded, this badge will be "
+"automatically awarded."
+msgstr ""
+
+#: models.py:390
+msgid "Unique"
+msgstr ""
+
+#: models.py:391
+msgid "Should awards of this badge be limited to one-per-person?"
+msgstr "徽章是否每人只有一次奖励"
+
+#: models.py:394
+msgid "Nominations Accepted"
+msgstr "接受提名"
+
+#: models.py:395
+msgid "Should this badge accept nominations from other users?"
+msgstr "徽章是否接受其他用户的提名"
+
+#: models.py:428
 msgid "Cannot process image"
 msgstr ""
 
-#: models.py:629
+#: views.py:206
 #, python-format
-msgid "You have won the badge:%(title)s"
-msgstr "你获得了“%(title)s”徽章"
-
-#: templates/badger/award_detail.html:9
-msgid "Award detail"
+msgid "Badge \"%s\" deleted."
 msgstr ""
 
-#: templates/badger/awards_by_badge.html:7
-#: templates/badger/badge_detail.html:16
+#: views.py:235
+#, python-format
+msgid "Award issued to %s"
+msgstr ""
+
+#: views.py:237
+#, python-format
+msgid "Invitation to claim award sent to %s"
+msgstr ""
+
+#: views.py:295
+#, python-format
+msgid "Award for badge \"%s\" deleted."
+msgstr ""
+
+#: views.py:375
+#, python-format
+msgid "Award claim granted to %s"
+msgstr ""
+
+#: views.py:447
+#, python-format
+msgid "Badge \"%(badge)s\" granted to %(email)s"
+msgstr ""
+
+#: views.py:519
+#, python-format
+msgid "Nomination submitted for %s"
+msgstr ""
+
+#: views.py:522
+#, python-format
+msgid "Badge already awarded to %s"
+msgstr ""
+
+#: views.py:525
+#, python-format
+msgid "Nomination failed for %s"
+msgstr ""
+
+#: management/__init__.py:20
+#, fuzzy
+msgid "Badge edited"
+msgstr "徽章"
+
+#: management/__init__.py:21
+msgid "one of your badges has been edited"
+msgstr ""
+
+#: management/__init__.py:22
+#, fuzzy
+msgid "Badge awarded"
+msgstr "徽章"
+
+#: management/__init__.py:23
+msgid "one of your badges has been awarded to someone"
+msgstr ""
+
+#: management/__init__.py:24
+msgid "Award received"
+msgstr ""
+
+#: management/__init__.py:25
+#, fuzzy
+msgid "you have been awarded a badge"
+msgstr "你被奖励了一枚徽章，请前去领取"
+
+#: management/__init__.py:31
+msgid "Nomination submitted"
+msgstr ""
+
+#: management/__init__.py:32
+msgid "someone has submitted a nomination for one of your badges"
+msgstr ""
+
+#: management/__init__.py:33
+msgid "Nomination approved"
+msgstr ""
+
+#: management/__init__.py:34
+msgid "a nomination you submitted for an award has been approved"
+msgstr ""
+
+#: management/__init__.py:35
+msgid "Nomination rejected"
+msgstr ""
+
+#: management/__init__.py:36
+msgid "a nomination you submitted for an award has been rejected"
+msgstr ""
+
+#: management/__init__.py:37
+msgid "Nomination received"
+msgstr ""
+
+#: management/__init__.py:38
+msgid "a nomination to award you a badge was approved"
+msgstr ""
+
+#: management/__init__.py:39
+msgid "Nomination accepted"
+msgstr ""
+
+#: management/__init__.py:40
+msgid "a nomination you submitted for an award has been accepted"
+msgstr ""
+
+#: templates/badger/award_delete.html:10
+#: templates/badger/noty/award_delete.html:18
+#, fuzzy
+msgid "Delete Award"
+msgstr "最近颁发"
+
+#: templates/badger/award_delete.html:22
+#: templates/badger/noty/award_delete.html:30
+msgid "Delete this award, are you sure?"
+msgstr ""
+
+#: templates/badger/award_delete.html:24
+#: templates/badger/noty/award_delete.html:32
+#, fuzzy
+msgid "Yes, delete award"
+msgstr "最近颁发"
+
+#: templates/badger/awards_by_user.html:8 templates/badger/awards_list.html:7
+#: templates/badger/badge_detail.html:9 templates/badger/badges_by_user.html:7
+#: templates/badger/noty/awards_by_badge.html:7
+#: templates/badger/noty/awards_by_user.html:7
+#: templates/badger/noty/badge_detail.html:15
+#: templates/badger/noty/badges_by_user.html:7
 msgid "Recent awards"
 msgstr "最近颁发"
 
-#: templates/badger/awards_by_user.html:9
-msgid "Growth points for %(user)s"
-msgstr "<b>%(user)s</b> 的成长值"
-
-#: templates/badger/awards_by_user.html:10
-#, python-format
-msgid "Growth points:%(points)s"
-msgstr ""
-
-#: templates/badger/awards_by_user.html:13
+#: templates/badger/awards_by_user.html:15
 #, python-format
 msgid "Awards for %(user)s"
 msgstr "颁发给 <b>%(user)s</b> 的徽章"
 
-#: templates/badger/badge_detail.html:10
+#: templates/badger/badge_award.html:7 templates/badger/badge_award.html:15
+#: templates/badger/base.html:28
+msgid "Award badge"
+msgstr "颁发徽章"
+
+#: templates/badger/badge_create.html:9 templates/badger/badge_create.html:15
+#: templates/badger/base.html:24 templates/badger/noty/badge_create.html:17
+msgid "Create badge"
+msgstr "创建徽章"
+
+#: templates/badger/badge_delete.html:19 templates/badger/badge_delete.html:38
+#: templates/badger/noty/badge_delete.html:18
+#: templates/badger/noty/includes/badge_full.html:9
+#, fuzzy
+msgid "Delete badge"
+msgstr "创建徽章"
+
+#: templates/badger/badge_delete.html:25
+#, python-format
+msgid ""
+"\n"
+"                <span class=\"label label-warning\">Note:</span>\n"
+"                Deleting this badge will also delete \n"
+"                <a href=\"%(badge_url)s\"><span class=\"awards_count\">"
+"%(awards_count)s</span> award(s)</a>\n"
+"            "
+msgstr ""
+
+#: templates/badger/badge_delete.html:31
+msgid ""
+"\n"
+"                <span class=\"label label-success\">Note:</span>\n"
+"                No one has been awarded this badge, yet.\n"
+"            "
+msgstr ""
+
+#: templates/badger/badge_delete.html:36
+msgid "Are you sure?"
+msgstr ""
+
+#: templates/badger/badge_detail.html:20
 msgid "Badge detail"
 msgstr "徽章"
 
-#: templates/badger/badges_list.html:8
-msgid "Shanbay Badges"
-msgstr "扇贝徽章"
+#: templates/badger/badge_edit.html:10
+#: templates/badger/noty/includes/badge_full.html:6
+msgid "Edit badge"
+msgstr "编辑徽章"
 
-#: templates/badger/home.html:10
-msgid "Recently created badges"
+#: templates/badger/badge_edit.html:18
+#: templates/badger/noty/badge_edit.html:17
+#, fuzzy
+msgid "Save badge"
+msgstr "创建徽章"
+
+#: templates/badger/badge_nominate_for.html:18
+#: templates/badger/noty/badge_nominate_for.html:18
+msgid "Submit badge nominations"
 msgstr ""
 
-#: templates/badger/includes/badge_full.html:16
+#: templates/badger/badge_nominate_for.html:25
+#: templates/badger/noty/badge_detail.html:119
+#: templates/badger/noty/badge_nominate_for.html:25
+msgid "Submit nominations"
+msgstr ""
+
+#: templates/badger/badges_by_user.html:13
+#: templates/badger/noty/badges_by_user.html:13
+msgid "Badges created by {user}"
+msgstr ""
+
+#: templates/badger/badges_list.html:9
+msgid "Badges"
+msgstr "徽章"
+
+#: templates/badger/base.html:17
+msgid "My badges"
+msgstr "我的徽章"
+
+#: templates/badger/base.html:20 templates/badger/noty/badges_list.html:20
+msgid "All badges"
+msgstr "全部徽章"
+
+#: templates/badger/claim_deferred_award.html:20
+#: templates/badger/noty/claim_deferred_award.html:19
+msgid "Award Claim"
+msgstr ""
+
+#: templates/badger/claim_deferred_award.html:34
+#: templates/badger/claim_deferred_award.html:54
+#: templates/badger/noty/claim_deferred_award.html:33
+#: templates/badger/noty/claim_deferred_award.html:59
+msgid "Claim"
+msgstr ""
+
+#: templates/badger/claim_deferred_award.html:35
+#: templates/badger/noty/claim_deferred_award.html:34
+#, fuzzy
+msgid "Sign in to claim this badge award"
+msgstr "领取徽章"
+
+#: templates/badger/claim_deferred_award.html:57
+msgid ""
+"\n"
+"                <p><span class=\"label label-warning\">Note:</span>\n"
+"                    <em>This award may not be intended for you.</em>\n"
+"                    Your email address does not match this award claim.\n"
+"                </p>\n"
+"                "
+msgstr ""
+
+#: templates/badger/claim_deferred_award.html:65
+#: templates/badger/noty/claim_deferred_award.html:71
+#, fuzzy
+msgid "Claim this award"
+msgstr "领取徽章"
+
+#: templates/badger/claims_list.html:13
+#: templates/badger/noty/claims_list.html:13
+#, fuzzy
+msgid "Claim codes for {badge}"
+msgstr "领取徽章"
+
+#: templates/badger/deferred_award_notification.html:3
+msgid "You are awarded a badge."
+msgstr "你被奖励了一枚徽章，请前去领取"
+
+#: templates/badger/deferred_award_notification.html:5
+msgid "Claim the award"
+msgstr "领取徽章"
+
+#: templates/badger/manage_claims.html:13
+#: templates/badger/nomination_detail.html:10
+#: templates/badger/noty/badge_award.html:11
+#: templates/badger/noty/badge_delete.html:11
+#: templates/badger/noty/badge_detail.html:40
+#: templates/badger/noty/badge_nominate_for.html:11
+#: templates/badger/noty/claim_deferred_award.html:11
+#: templates/badger/noty/manage_claims.html:13
+#: templates/badger/noty/nomination_detail.html:10
+#, fuzzy
+msgid "Badge: {badge_title}"
+msgstr "徽章"
+
+#: templates/badger/manage_claims.html:20
+#: templates/badger/noty/manage_claims.html:20
+msgid "Manage claim codes"
+msgstr ""
+
+#: templates/badger/manage_claims.html:28
+#: templates/badger/noty/badge_detail.html:137
+#: templates/badger/noty/manage_claims.html:28
+msgid "{num} single-use claim codes"
+msgstr ""
+
+#: templates/badger/manage_claims.html:31
+#: templates/badger/noty/badge_detail.html:140
+#: templates/badger/noty/manage_claims.html:31
+msgid "Generate"
+msgstr ""
+
+#: templates/badger/manage_claims.html:40
+#: templates/badger/includes/badge_full.html:10
+#: templates/badger/noty/badge_detail.html:149
+#: templates/badger/noty/manage_claims.html:40
+msgid "Delete"
+msgstr ""
+
+#: templates/badger/manage_claims.html:46
+#: templates/badger/noty/badge_detail.html:156
+#: templates/badger/noty/manage_claims.html:46
+msgid "{count} single-use codes"
+msgstr ""
+
+#: templates/badger/manage_claims.html:50
+#: templates/badger/noty/badge_detail.html:160
+#: templates/badger/noty/manage_claims.html:50
+msgid "Download claim codes as printable PDF"
+msgstr ""
+
+#: templates/badger/manage_claims.html:51
+#: templates/badger/noty/badge_detail.html:161
+#: templates/badger/noty/manage_claims.html:51
+msgid "PDF"
+msgstr ""
+
+#: templates/badger/manage_claims.html:56
+#: templates/badger/noty/badge_detail.html:166
+#: templates/badger/noty/manage_claims.html:56
+msgid "1 reusable code"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:17
+#: templates/badger/noty/nomination_detail.html:17
+msgid "Nomination detail"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:24
+#: templates/badger/noty/award_detail.html:55
+#: templates/badger/noty/nomination_detail.html:24
+msgid "Actions:"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:29
+#: templates/badger/noty/nomination_detail.html:29
+msgid "Approve nomination"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:38
+#: templates/badger/noty/nomination_detail.html:38
+msgid "Accept your nomination"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:40
+#: templates/badger/noty/nomination_detail.html:40
+msgid "Accept nomination on behalf of nominee"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:49
+#: templates/badger/noty/nomination_detail.html:49
+msgid "Reject nomination"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:55
+#: templates/badger/noty/nomination_detail.html:55
+msgid "Award:"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:58
+#: templates/badger/noty/nomination_detail.html:58
+msgid "Nominee:"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:60
+#: templates/badger/noty/nomination_detail.html:60
+msgid "Accepted?:"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:62
+#: templates/badger/noty/nomination_detail.html:62
+msgid "Nominator:"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:65
+#: templates/badger/noty/nomination_detail.html:65
+msgid "Approver:"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:68
+#: templates/badger/noty/nomination_detail.html:68
+msgid "Approved?:"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:69
+#: templates/badger/noty/nomination_detail.html:69
+msgid "No"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:72
+#: templates/badger/noty/nomination_detail.html:72
+msgid "Rejected by:"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:75
+#: templates/badger/noty/nomination_detail.html:75
+msgid "Rejected reason:"
+msgstr ""
+
+#: templates/badger/nomination_detail.html:79
+#: templates/badger/noty/nomination_detail.html:79
+#, fuzzy
+msgid "Created:"
+msgstr "创建徽章"
+
+#: templates/badger/nomination_detail.html:81
+#: templates/badger/noty/nomination_detail.html:81
+msgid "Modified:"
+msgstr ""
+
+#: templates/badger/notification.html:6
+msgid "Please goto claim the award"
+msgstr "领取徽章"
+
+#: templates/badger/staff_tools.html:18
+#: templates/badger/noty/staff_tools.html:18
+#, fuzzy
+msgid "Grant badge claims"
+msgstr "创建徽章"
+
+#: templates/badger/includes/award_full.html:21
+#: templates/badger/noty/award_detail.html:58
+#: templates/badger/noty/includes/award_full.html:21
+#, fuzzy
+msgid "Delete award"
+msgstr "最近颁发"
+
+#: templates/badger/includes/badge_full.html:7
+msgid "Edit"
+msgstr ""
+
+#: templates/badger/includes/badge_full.html:50
+msgid "Claim the badge"
+msgstr "领取徽章"
+
+#: templates/badger/includes/badge_full.html:60 templatetags/badger_tags.py:87
 msgid "Issue award"
 msgstr ""
 
-#: templates/badger/includes/pagination.html:3
-msgid "{start}&ndash;{end} of {total}"
-msgstr ""
-
-#: templates/badger/includes/pagination.html:8
+#: templates/badger/includes/pagination.html:6
+#: templates/badger/noty/includes/pagination.html:6
 msgid "Go to the first page"
 msgstr ""
 
-#: templates/badger/includes/pagination.html:11
+#: templates/badger/includes/pagination.html:6
+msgid "First"
+msgstr "第一页"
+
+#: templates/badger/includes/pagination.html:9
+#: templates/badger/noty/includes/pagination.html:9
 msgid "Go to the previous page"
 msgstr ""
 
-#: templates/badger/includes/pagination.html:11
+#: templates/badger/includes/pagination.html:9
+#: templates/badger/noty/includes/pagination.html:9
 msgid "Previous"
 msgstr ""
 
-#: templates/badger/includes/pagination.html:14
+#: templates/badger/includes/pagination.html:12
+#: templates/badger/noty/includes/pagination.html:12
 msgid "Go to the next page"
 msgstr ""
 
-#: templates/badger/includes/pagination.html:14
+#: templates/badger/includes/pagination.html:12
+#: templates/badger/noty/includes/pagination.html:12
 msgid "Next"
 msgstr ""
 
-#: templates/badger/includes/pagination.html:17
+#: templates/badger/includes/pagination.html:15
+#: templates/badger/noty/includes/pagination.html:15
 msgid "Go to the last page"
 msgstr ""
 
-#: templates/badger/includes/pagination.html:17
+#: templates/badger/includes/pagination.html:15
+#: templates/badger/noty/includes/pagination.html:15
 msgid "Last"
 msgstr ""
 
-#~ msgid "Badge"
-#~ msgstr "徽章"
+#: templates/badger/noty/award_detail.html:18
+#: templates/badger/noty/badge_detail.html:18
+msgid "{title} (JSON)"
+msgstr ""
+
+#: templates/badger/noty/award_detail.html:39
+#, fuzzy
+msgid "Your Awarded Badge: {badge_title}"
+msgstr "你被奖励了一枚徽章，请前去领取"
+
+#: templates/badger/noty/award_detail.html:41
+msgid "Awarded Badge: {badge_title}"
+msgstr ""
+
+#: templates/badger/noty/award_detail.html:62
+#: templates/badger/noty/badge_detail.html:45
+msgid "Share:"
+msgstr ""
+
+#: templates/badger/noty/award_detail.html:68
+msgid "Add this badge to your Mozilla&nbsp;Badge&nbsp;Backpack"
+msgstr ""
+
+#: templates/badger/noty/awards_by_badge.html:16
+#, fuzzy
+msgid "Badge detail for {title}"
+msgstr "徽章"
+
+#: templates/badger/noty/awards_by_badge.html:23
+msgid "Awards"
+msgstr ""
+
+#: templates/badger/noty/awards_by_user.html:14
+#, fuzzy
+msgid "Awards for {user}"
+msgstr "颁发给 <b>%(user)s</b> 的徽章"
+
+#: templates/badger/noty/awards_list.html:7
+#: templates/badger/noty/badge_detail.html:69
+msgid "Recent badge awards"
+msgstr "最近颁发"
+
+#: templates/badger/noty/awards_list.html:16
+msgid "Awarded badges for {badge}"
+msgstr ""
+
+#: templates/badger/noty/awards_list.html:18
+#, fuzzy
+msgid "Awarded badges"
+msgstr "最近颁发的徽章"
+
+#: templates/badger/noty/badge_award.html:18
+#: templates/badger/noty/badge_award.html:25
+#: templates/badger/noty/badge_detail.html:103
+msgid "Issue badge awards"
+msgstr ""
+
+#: templates/badger/noty/badge_create.html:11
+msgid "Create a badge"
+msgstr "创建徽章"
+
+#: templates/badger/noty/badge_create.html:31
+#, fuzzy
+msgid "Title:"
+msgstr "标题"
+
+#: templates/badger/noty/badge_create.html:32
+#, fuzzy
+msgid "Test Badger"
+msgstr "创建徽章"
+
+#: templates/badger/noty/badge_create.html:36
+msgid "Image:"
+msgstr ""
+
+#: templates/badger/noty/badge_create.html:49
+msgid "Description:"
+msgstr ""
+
+#: templates/badger/noty/badge_create.html:50
+msgid "For having qualities like a test pilot, but more badgery."
+msgstr ""
+
+#: templates/badger/noty/badge_create.html:58
+msgid "Tags:"
+msgstr ""
+
+#: templates/badger/noty/badge_delete.html:35
+msgid "Delete this badge, are you sure?"
+msgstr ""
+
+#: templates/badger/noty/badge_delete.html:37
+#, fuzzy
+msgid "Yes, delete badge"
+msgstr "创建徽章"
+
+#: templates/badger/noty/badge_detail.html:71
+#: templates/badger/noty/home.html:100 templates/badger/noty/home.html:115
+msgid "More..."
+msgstr ""
+
+#: templates/badger/noty/badge_detail.html:96
+msgid "Issue badge awards by email"
+msgstr ""
+
+#: templates/badger/noty/badge_detail.html:112
+msgid "Submit nominations by email"
+msgstr ""
+
+#: templates/badger/noty/badge_detail.html:128
+msgid "Issue badge awards with claim codes"
+msgstr ""
+
+#: templates/badger/noty/badge_edit.html:9
+msgid "Edit badge: {title}"
+msgstr "编辑徽章: {title}"
+
+#: templates/badger/noty/badges_list.html:14
+#: templates/badger/noty/badges_list.html:23
+msgid "Create new badge"
+msgstr "创建徽章"
+
+#: templates/badger/noty/badges_list.html:18
+msgid "Badges matching \"{query_string}\""
+msgstr ""
+
+#: templates/badger/noty/badges_list.html:32
+msgid "Recent awards for these badges"
+msgstr "最近颁发的徽章"
+
+#: templates/badger/noty/base.html:16 templates/badger/noty/notices.html:3
+#: templates/badger/noty/notices.html:9 templates/badger/noty/single.html:3
+msgid "Notices"
+msgstr ""
+
+#: templates/badger/noty/base.html:17 templates/badger/noty/notices.html:11
+msgid "Settings"
+msgstr ""
+
+#: templates/badger/noty/claim_deferred_award.html:39
+#: templates/badger/noty/home.html:44
+msgid "Sign In with BrowserID"
+msgstr ""
+
+#: templates/badger/noty/claim_deferred_award.html:48
+msgid "Grant"
+msgstr ""
+
+#: templates/badger/noty/claim_deferred_award.html:49
+msgid "You can grant this award to someone else"
+msgstr ""
+
+#: templates/badger/noty/claim_deferred_award.html:51
+#, fuzzy
+msgid "Grant this award"
+msgstr "领取徽章"
+
+#: templates/badger/noty/claim_deferred_award.html:69
+msgid "You can claim this award for yourself"
+msgstr ""
+
+#: templates/badger/noty/full.html:1
+#, python-format
+msgid "%(notice)s"
+msgstr ""
+
+#: templates/badger/noty/home.html:17
+msgid "Welcome to {site_title}!"
+msgstr ""
+
+#: templates/badger/noty/home.html:32
+msgid "☺  View your profile"
+msgstr ""
+
+#: templates/badger/noty/home.html:53
+msgid "Have a claim code?"
+msgstr ""
+
+#: templates/badger/noty/home.html:54
+msgid "Type it here to claim your badge:"
+msgstr ""
+
+#: templates/badger/noty/home.html:63
+#, fuzzy
+msgid "Claim award from code"
+msgstr "通过领取徽章"
+
+#: templates/badger/noty/home.html:70
+msgid "Have an idea for a badge?"
+msgstr ""
+
+#: templates/badger/noty/home.html:71
+msgid "Click here to start:"
+msgstr ""
+
+#: templates/badger/noty/home.html:74
+msgid "✸ Create a new badge"
+msgstr "创建徽章"
+
+#: templates/badger/noty/home.html:101 templates/badger/noty/home.html:116
+msgid "Atom feed"
+msgstr ""
+
+#: templates/badger/noty/notice_settings.html:3
+#: templates/badger/noty/notice_settings.html:9
+msgid "Notification Settings"
+msgstr ""
+
+#: templates/badger/noty/notice_settings.html:13
+msgid "Primary email"
+msgstr ""
+
+#: templates/badger/noty/notice_settings.html:21
+msgid "Notification Type"
+msgstr ""
+
+#: templates/badger/noty/notice_settings.html:39
+msgid "Change"
+msgstr ""
+
+#: templates/badger/noty/notices.html:12
+msgid "Mark all read"
+msgstr ""
+
+#: templates/badger/noty/notices.html:27
+msgid "No notices."
+msgstr ""
+
+#: templates/badger/noty/single.html:9
+msgid "Notice"
+msgstr ""
+
+#: templates/badger/noty/single.html:11
+msgid "View all notices"
+msgstr ""
+
+#~ msgid "You have won the badge:%(title)s"
+#~ msgstr "你获得了“%(title)s”徽章"
+
+#~ msgid "Growth points for %(user)s"
+#~ msgstr "<b>%(user)s</b> 的成长值"
+
+#~ msgid "Shanbay Badges"
+#~ msgstr "扇贝徽章"

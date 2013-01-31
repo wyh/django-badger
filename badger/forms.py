@@ -88,8 +88,8 @@ class MultipleItemsField(forms.Field):
         # Enforce max number of items
         if len(value) > self.max_items:
             raise ValidationError(
-                _('%s items entered, only %s allowed') %
-                (len(value), self.max_items))
+                _('%(num)s items entered, only %(max)s allowed') %
+                {"num": len(value), "max":self.max_items})
         
         # Validate each of the items
         invalid_items = []
@@ -114,12 +114,12 @@ class BadgeAwardForm(MyForm):
     """Form to create either a real or deferred badge award"""
     # TODO: Needs a captcha?
     emails = MultiEmailField(max_items=10,
-            help_text="Enter up to 10 email addresses for badge award "
-                      "recipients")
+            help_text=_("Enter up to 10 email addresses for badge award "
+                      "recipients"))
     description = CharField(
-            label='Explanation',
+            label=_('Explanation'),
             widget=Textarea, required=False,
-            help_text="Explain why this badge should be awarded")
+            help_text=_("Explain why this badge should be awarded"))
 
 
 class DeferredAwardGrantForm(MyForm):
@@ -152,10 +152,10 @@ class BadgeEditForm(MyModelForm):
         model = Badge
         try:
             import taggit
-            fields = ('title', 'image', 'description', 'tags', 'unique',
+            fields = ('title', 'slug', 'image', 'description', 'tags', 'unique',
                       'nominations_accepted',)
         except ImportError, e:
-            fields = ('title', 'image', 'description', 'unique',
+            fields = ('title', 'slug', 'image', 'description', 'unique',
                       'nominations_accepted',)
 
     required_css_class = "required"

@@ -1,4 +1,5 @@
 {% extends "badger/base.html" %}
+{% load i18n %}
 
 {% block pageid %}badge_edit{% endblock %}
 
@@ -6,7 +7,7 @@
 
 <section>
     <header class="page-header">
-    <h2>Edit badge: {{ badge.title }}</h2>
+    <h2>{% trans "Edit badge" %}: {{ badge.title }}</h2>
     </header>
 
     <form id="edit_badge" class="form-horizontal" 

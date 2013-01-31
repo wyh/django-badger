@@ -1,11 +1,35 @@
 {% extends "shanbay/base.html" %}
 {% load compressed %}
+{% load i18n %}
 
 {% block extra_head%}
     {% compressed_css 'app_base_css' %}
 {% endblock %}
 {% block body %}
-    {% block content %}
-
-    {% endblock %}
+    <div class="row">
+        <div class="span8">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="span4">
+            <ul class="nav nav-stacked nav-tabs">
+                <li>
+                    <a href="{% url badger.awards_by_user user.username %}">{% trans "My badges" %}</a>
+                </li>
+                <li>
+                    <a href="{% url badger.badges_list %}">{% trans "All badges" %}</a>
+                </li>
+                {% if user.is_staff %}
+                    <li>
+                        <a href="{% url badger.create_badge %}">{% trans "Create badge" %}</a>
+                    </li>
+                    {%if badge %}
+                        <li>
+                            <a href="{% url badger.award_badge badge.slug %}">{% trans "Award badge" %}</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}

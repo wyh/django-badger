@@ -3,11 +3,11 @@
     {% for award in award_list %}
             <div class="span2">
                 <div class="well badge-detail">
-                    <a href="{{ award.get_absolute_url }}" class="image"><img src="{% award_image award %}"
+                    <a href="#" class="image"><img src="{% award_image award %}"
                         alt="{{ award.badge.title }}" width="128" height="128" /></a>
-                    <h2><a href="{{ award.get_absolute_url }}" class="">
+                    <h3 class="center"><a href="#" class="">
                         <span class="title">{{ award.badge.title }}</span></a>
-                    </h2>
+                    </h3>
                 </div>
             </div>
     {% endfor %}

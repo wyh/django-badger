@@ -2,7 +2,7 @@
 {% load badger_tags %}
 {% load badge_tags %}
 {% if not award %}
-<div class="btn-group">
+<div class="btn-group well ">
     {% if badge|permissions_for:request.user|key:'edit_by' %}
         <a class="btn btn-large btn-primary edit_badge" href="{% url badger.views.edit badge.slug  %}">{{ _('Edit') }}</a>
     {% endif %}

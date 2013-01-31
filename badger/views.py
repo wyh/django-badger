@@ -444,8 +444,8 @@ def staff_tools(request):
                 for claim_code in codes:
                     da = DeferredAward.objects.get(claim_code=claim_code)
                     da.grant_to(email, request.user)
-                    messages.info(request, _('Badge "%s" granted to %s' %
-                                             (da.badge, email)))
+                    messages.info(request, _('Badge "%(badge)s" granted to %(email)s' %
+                                {"badge":da.badge, "email":email}))
                 url = reverse('badger.views.staff_tools')
                 return HttpResponseRedirect(url)
 

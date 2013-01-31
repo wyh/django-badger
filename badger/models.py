@@ -372,28 +372,28 @@ class Badge(models.Model):
     """Representation of a badge"""
     objects = BadgeManager()
 
-    title = models.CharField(max_length=255, blank=False, unique=True,
-            help_text="Short, descriptive title")
-    slug = models.SlugField(blank=False, unique=True,
-            help_text="Very short name, for use in URLs and links")
-    description = models.TextField(blank=True,
-            help_text="Longer description of the badge and its criteria")
-    image = models.ImageField(blank=True, null=True,
+    title = models.CharField(max_length=255, blank=False, unique=True, verbose_name=_("title"),
+            help_text=_("Short, descriptive title"))
+    slug = models.SlugField(blank=False, unique=True, verbose_name=_("Slug"),
+            help_text=_("Very short name, for use in URLs and links"))
+    description = models.TextField(blank=True, verbose_name=_("Description"),
+            help_text=_("Longer description of the badge and its criteria"))
+    image = models.ImageField(blank=True, null=True, verbose_name=_("Image"),
             storage=BADGE_UPLOADS_FS, upload_to=mk_upload_to('image','png'),
-            help_text="Upload an image to represent the badge")
+            help_text=_("Upload an image to represent the badge"))
     prerequisites = models.ManyToManyField('self', symmetrical=False,
             blank=True, null=True,
-            help_text="When all of the selected badges have been awarded, this "
-                      "badge will be automatically awarded.")
+            help_text=_("When all of the selected badges have been awarded, this "
+                      "badge will be automatically awarded."))
     # TODO: Rename? Eventually we'll want a globally-unique badge. That is, one
     # unique award for one person for the whole site.
-    unique = models.BooleanField(default=True,
-            help_text="Should awards of this badge be limited to "
-                      "one-per-person?")
+    unique = models.BooleanField(default=True, verbose_name=_("Unique"),
+            help_text=_("Should awards of this badge be limited to "
+                      "one-per-person?"))
 
-    nominations_accepted = models.BooleanField(default=True, blank=True,
-            help_text="Should this badge accept nominations from " 
-                      "other users?")
+    nominations_accepted = models.BooleanField(default=True, blank=True, verbose_name=_("Nominations Accepted"),
+            help_text=_("Should this badge accept nominations from " 
+                      "other users?"))
 
     if taggit:
         tags = TaggableManager(blank=True)
