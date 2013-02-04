@@ -3,4 +3,6 @@
 {% trans "You are awarded a badge." %}
 <a href="{% url badger.notification %}">
 {% trans 'Claim the award' %}</a>
+<a href="{% url notification.views.redirect_notifications notification_id %}">
+{% trans 'check' %}</a>
 </li>
