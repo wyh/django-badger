@@ -39,7 +39,10 @@ def key(obj, name):
 
 @register.filter
 def badge_progress(badge, user):
-    return badge.progress_for(user).percent
+    percent = badge.progress_for(user).percent
+    if percent > 100:
+        percent = 100
+    return percent
 
 @register.simple_tag
 def user_avatar(user, secure=False, size=256, rating='pg', default=''):
