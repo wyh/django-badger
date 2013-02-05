@@ -1,6 +1,6 @@
 {% load i18n %}
 {% load badger_tags %}
-{% load badge_tags %}
+
 {% if not award and user.is_staff %}
 <div class="btn-group well ">
     {% if badge|permissions_for:request.user|key:'edit_by' %}
