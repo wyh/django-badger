@@ -10,6 +10,7 @@ from django.core.urlresolvers import reverse
 
 from settings import BADGER_UPLOADS_URL  
 from badger.models import mk_upload_to, Award, Badge, DeferredAward
+from taggit.models import Tag, TaggedItem
 
 
 
@@ -115,3 +116,16 @@ def claim_code_for_badge(badge, user):
     else:
         code = "" 
     return code
+
+@register.filter
+def badges_by_tag(tag, badge_ids=None):
+    badges = Badge.objects.filter(tags__id=tag)
+    if badge_ids:
+        badges = badges.filter(id__in=badge_ids)
+    return badges
+@register.filter
+def get_tag_name(tag):
+    try:
+        return Tag.objects.get(id=tag).name
+    except Tag.DoesNotExist:
+        return ""

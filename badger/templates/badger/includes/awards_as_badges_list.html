@@ -1,15 +1,21 @@
 {% load badger_tags %}
+{% load i18n %}
+{% for tag in tags %}
+<div class="page-header">
+    <h3>{{tag.tag|get_tag_name}}{% trans "Badges" %}</h3>
+</div>
 <div class="badges row">
-    {% for award in award_list %}
+    {% for badge in tag.tag|badges_by_tag:badge_ids %}
             <div class="span2">
                 <div class="well badge-detail">
-                    <a href="#" class="image"><img src="{% award_image award %}"
-                        alt="{{ award.badge.title }}" width="128" height="128" /></a>
+                    <a href="#" class="image"><img src="{{ badge.image.url }}"
+                        alt="{{ badge.title }}" width="128" height="128" /></a>
                     <h3 class="center"><a href="#" class="">
-                        <span class="title">{{ award.badge.title }}</span></a>
+                        <span class="title">{{ badge.title }}</span></a>
                     </h3>
                 </div>
             </div>
     {% endfor %}
 </div>
+{% endfor %}
 {% include "badger/includes/pagination.html" %}

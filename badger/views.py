@@ -10,6 +10,7 @@ from django.utils import simplejson
 
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
+from django.contrib.contenttypes.models import ContentType
 from django.template.defaultfilters import slugify
 
 try:
@@ -32,6 +33,7 @@ from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import Count
 
 try:
     import taggit
@@ -80,11 +82,15 @@ def badges_list(request, tag_name=None):
         award_list = (Award.objects.filter(badge__in=queryset))
     else:
         queryset = Badge.objects.order_by('-modified').all()
+        ct = ContentType.objects.get_for_model(Badge)
+        tags = TaggedItem.objects.values('tag').annotate(count=Count('id')).filter(content_type=ct)
+
     return object_list(request, queryset,
         paginate_by=BADGE_PAGE_SIZE, allow_empty=True,
         extra_context=dict(
             tag_name=tag_name,
             query_string=query_string,
+            tags=tags,
             award_list=award_list,
         ),
         template_object_name='badge',
@@ -407,9 +413,11 @@ def claims_list(request, slug, claim_group, format="html"):
 def awards_by_user(request, username):
     """Badge awards by user"""
     user = get_object_or_404(User, username=username)
-    awards = Award.objects.filter(user=user)
+    badge_ids = Award.objects.filter(user=user).values_list("badge__id", flat=True)
+    ct = ContentType.objects.get_for_model(Badge)
+    tags = TaggedItem.objects.values('tag').annotate(count=Count('id')).filter(object_id__in=badge_ids)
     return render_to_response('%s/awards_by_user.html' % TEMPLATE_BASE, dict(
-        user=user, award_list=awards,
+        user=user, tags=tags, badge_ids=badge_ids
     ), context_instance=RequestContext(request))
 
 
