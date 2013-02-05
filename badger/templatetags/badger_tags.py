@@ -1,13 +1,17 @@
+import json
 # django
 from django import template
 from django.conf import settings
 from django.shortcuts import  get_object_or_404
-from badger.models import Award, Badge
-
-
+from django.utils.safestring import mark_safe
 from django.contrib.auth.models import SiteProfileNotAvailable
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
+
+from settings import BADGER_UPLOADS_URL  
+from badger.models import mk_upload_to, Award, Badge, DeferredAward
+
+
 
 import hashlib
 import urllib
@@ -87,3 +91,24 @@ def user_award_list(badge, user):
             return '<li><a class="award_badge" href="%s">%s</a></li>' % ( reverse('badger.views.award_badge', args=[badge.slug,]), _('Issue award') )
      else:
         return ''
+
+def badge(badge, size):
+    name = mk_upload_to("image.png", size)
+    return "%s%s" % (BADGER_UPLOADS_URL, name(badge,"")) 
+
+register.simple_tag(badge)
+
+@register.filter(name="user_award")
+def user_award(user):
+    awards = Award.objects.filter(user=user)
+    return awards
+
+@register.filter
+def claim_code_for_badge(badge, user):
+    das = DeferredAward.objects.filter(badge=badge, email=user.email)
+    if len(das) > 0:
+        da = das[0]
+        code = da.claim_code
+    else:
+        code = "" 
+    return code
