@@ -1,0 +1,6 @@
+configuration:
+    - event: badger.deferredaward
+      event_name: Deferred Award
+      redirect_url: /badger/notification/
+      template: badger/deferred_award_notification.html 
+      priority: 3
